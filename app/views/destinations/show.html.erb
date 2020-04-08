@@ -1,0 +1,31 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h3>
+    <%= @destination.name %>
+  </h3>
+
+  <p>
+    <strong>Zip:</strong>
+    <%= @destination.zip %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @destination.description %>
+  </p>
+
+  <%= image_tag(@destination.image_url) %>
+
+  <div class="row">
+    <h4>Forecast for <%= @destination.name %>:</h4>
+
+  </div>
+
+  <%= image_tag "https://media2.giphy.com/media/XHMdaVMdF5IAzRpE1z/giphy.gif?cid=91c8714ed117750192eb17a63855c9f33e27ac2dcd574f17&rid=giphy.gif" %>
+
+  <div class="row">
+    <%= link_to 'Edit', edit_destination_path(@destination) %> |
+    <%= link_to 'Back', destinations_path %>
+  </div>
+</div>
