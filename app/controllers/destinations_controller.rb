@@ -6,6 +6,8 @@ class DestinationsController < ApplicationController
   end
 
   def show
+    @info = DestinationFacade.retrieve_forecast(@destination.zip)
+    #moved to a facade, uses info from service and poro, gathers info, and gives back to controller
   end
 
   def new
