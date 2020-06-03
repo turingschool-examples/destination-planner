@@ -19,7 +19,14 @@
 
   <div class="row">
     <h4>Forecast for <%= @destination.name %>:</h4>
-
+      <ul class="weather-api">
+        <li class="date"><%= @info.date %></li>
+        <li class="current"><%= @info.current %>F</li>
+        <li class="high"><%= @info.high %>F</li>
+        <li class="low"><%= @info.low %>F</li>
+        <li class="summary"><%= @info.summary %></li>
+        <li class="gif"><%=  %></li>
+      </ul>
   </div>
 
   <div class="row">
