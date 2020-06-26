@@ -24,13 +24,21 @@ RSpec.describe "As a user," do
       #verify in a within block that its not empty, expect wrapped classes to not be empty
     end
 
-    it "and it will display an gif related to weather." do
+    it "and it will display a gif related to weather." do
+      destination = Destination.create!(name: 'Indianapolis, IN', 
+                                        zip: 46217, 
+                                        description: "This is a description.", 
+                                        image_url: 'https://media-cdn.tripadvisor.com/media/photo-s/06/d7/dc/ac/bigphotoforindianapolis.jpg'
+                                       )
+      
       visit "/"
 
       within "#destination-#{destination.id}" do
         click_on "Show"
       end
-      
+      within(first(".weather-api")) do
+        expect(page).to have_css(".gif")
+      end
     end
   end
 end
