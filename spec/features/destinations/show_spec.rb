@@ -38,6 +38,7 @@ RSpec.describe "As a user," do
       end
       within(first(".weather-api")) do
         expect(page).to have_css(".gif")
+        expect(page).to have_content("Gif for")
       end
     end
   end
