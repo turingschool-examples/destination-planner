@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+- 2.5.3
+addons:
+  postgresql: 9.6
+  chrome: stable
+before_install:
+- yes | gem update --system --force
+- gem install bundler
+script:
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  # api_key:
+  #   secure: 
+  app: crime-time
+  run: rails db:{migrate,seed}
+  on:
+    repo: jrsewell400/destination-planner
+  skip_cleanup: 'true'
