@@ -2,6 +2,12 @@
 
 Simple app with CRUD interface for destinations. To be used as a jumping point for various lessons at Turing.
 
+### Versions
+
+Rails 5.2.4.3
+
+Ruby 2.5.3
+
 ## Setup
 
 To set up:
