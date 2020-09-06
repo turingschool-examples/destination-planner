@@ -18,8 +18,10 @@
   <%= image_tag(@destination.image_url) %>
 
   <div class="row">
-    <h4>Forecast for <%= @destination.name %>:</h4>
-    <h5 class="current_temp"><%= @forecast.date %></h5>
+    <h4>Forecast for <%= @destination.name %>:</h4><br>
+  </div>
+
+    <h4 class="current_date"><%= @forecast.formatted_date %></h4>
     <h5>Current Temperature</h5>
     <p class="current_temp"><%= @forecast.temp %></p>
     <h5>Today's High</h5>
@@ -28,7 +30,6 @@
     <p class="low_temp"><%= @forecast.temp_min %></p>
     <h5>Summary</h5>
     <p class="weather_summary"><%= @forecast.summary %></p>
-  </div>
 
   <div class="row">
     <%= link_to 'Edit', edit_destination_path(@destination) %> |
