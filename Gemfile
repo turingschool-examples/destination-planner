@@ -21,13 +21,13 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry'
+  gem 'faker'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'faker'
   gem 'simplecov'
 end
 
