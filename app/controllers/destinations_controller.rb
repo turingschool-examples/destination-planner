@@ -6,6 +6,7 @@ class DestinationsController < ApplicationController
   end
 
   def show
+    @forecast = ForecastFacade.weather_by_zip(@destination.zip)
   end
 
   def new
