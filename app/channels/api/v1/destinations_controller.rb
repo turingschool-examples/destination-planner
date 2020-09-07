@@ -17,6 +17,10 @@ class Api::V1::DestinationsController < ApplicationController
     render json: DestinationSerializer.render(destination)
   end
 
+  def destroy
+    Destination.destroy(params[:id])
+  end
+
   private
 
   def destination_params
