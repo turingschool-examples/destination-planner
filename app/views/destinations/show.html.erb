@@ -30,6 +30,7 @@
     <p class="low_temp"><%= @forecast.temp_min %></p>
     <h5>Summary</h5>
     <p class="weather_summary"><%= @forecast.summary %></p>
+    <%= image_tag(@forecast.image_url, alt: "image of #{@forecast.summary} weather") %>
 
   <div class="row">
     <%= link_to 'Edit', edit_destination_path(@destination) %> |
