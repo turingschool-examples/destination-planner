@@ -32,4 +32,19 @@ RSpec.describe "Destination API" do
     expect(destinations.first[:attributes][:zip]).to eq(@destination1.zip)
     expect(destinations.first[:attributes][:description]).to eq(@destination1.description)
   end
+  it "can return a single destination" do
+    get "/api/v1/destinations/#{@destination1.id}"
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    destination = parsed[:data]
+
+    expect(response).to be_successful
+    expect(response.content_type).to eq('application/json')
+    expect(destination.count).to eq(1)
+    expect(destination[:type]).to eq('destination')
+    expect(destination[:id]).to eq(@destination1.id)
+    expect(destination[:attributes][:name]).to eq(@destination1.name)
+    expect(destination[:attributes][:zip]).to eq(@destination1.zip)
+    expect(destination[:attributes][:description]).to eq(@destination1.description)
+  end
 end
