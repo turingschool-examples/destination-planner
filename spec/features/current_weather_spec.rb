@@ -20,7 +20,6 @@ RSpec.describe "Destination Show Page" do
     expect(page).to have_content(@destination.name)
     expect(page).to have_content(@destination.zip)
     expect(page).to have_content(@destination.description)
-    # expect(page).to have_css('.forecast')
     current_date = find('.current_date').text
     expect(current_date).to_not be_empty
     current_temp = find('.current_temp').text
@@ -31,6 +30,15 @@ RSpec.describe "Destination Show Page" do
     expect(low_temp).to_not be_empty
     weather_summary = find('.weather_summary').text
     expect(weather_summary).to_not be_empty
+  end
+  it 'displays a related gif' do
+    visit root_path
+
+    click_link 'Show'
+
+    expect(current_path).to eq(destination_path(@destination.id))
+
+    expect(page).to have_css("img")
   end
 end
 
