@@ -48,7 +48,8 @@ RSpec.describe Forecast do
       "name": "Englewood",
       "cod": 200
     }
-    @forecast = Forecast.new(@info)
+    @gif = "https://media1.giphy.com/media/KpAPQVW9lWnWU/200.gif?cid=3230edd1i7rnuxyrr7na5qzyptow0v6yl1rzg1l5e7odrocd&rid=200.gif"
+    @forecast = Forecast.new(@info, @gif)
   end
   it 'can be initialized with attributes' do
     date = DateTime.now.new_offset(@info[:timezone])
@@ -60,6 +61,7 @@ RSpec.describe Forecast do
     expect(@forecast.date).to be_instance_of(DateTime)
     expect(@forecast.date.offset).to eq(date.offset)
     expect(@forecast.summary).to eq('sunny')
+    expect(@forecast.image_url).to eq(@gif)
   end
    it "can format date" do
    date = DateTime.now.new_offset(@info[:timezone])
