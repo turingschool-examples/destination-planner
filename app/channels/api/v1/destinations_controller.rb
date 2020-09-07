@@ -12,6 +12,11 @@ class Api::V1::DestinationsController < ApplicationController
     render json: DestinationSerializer.render(destination)
   end
 
+  def update
+    destination = Destination.update(params[:id], destination_params)
+    render json: DestinationSerializer.render(destination)
+  end
+
   private
 
   def destination_params
