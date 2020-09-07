@@ -89,4 +89,15 @@ RSpec.describe "Destination API" do
     expect(destination[:attributes][:zip]).to eq('80497')
     expect(destination[:attributes][:description]).to eq(@destination1.description)
   end
+  it 'can delete and existing destination' do
+    expect(Destination.count).to eq(2)
+
+    delete "/api/v1/destinations/#{@destination2.id}"
+
+    expect(response).to be_successful
+    expect(response.status).to eq(204)
+    expect(response.body).to be_empty
+    expect(Destination.count).to eq(1)
+    expect{Destination.find(@destination2.id)}.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end
