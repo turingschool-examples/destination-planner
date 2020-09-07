@@ -40,7 +40,6 @@ RSpec.describe "Destination API" do
 
     expect(response).to be_successful
     expect(response.content_type).to eq('application/json')
-    expect(destination.count).to eq(1)
     expect(destination[:type]).to eq('destination')
     expect(destination[:id]).to eq(@destination1.id)
     expect(destination[:attributes][:name]).to eq(@destination1.name)
