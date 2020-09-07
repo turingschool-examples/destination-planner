@@ -6,4 +6,15 @@ class Api::V1::DestinationsController < ApplicationController
   def show
     render json: DestinationSerializer.render(Destination.find(params[:id]))
   end
+
+  def create
+    destination = Destination.create(destination_params)
+    render json: DestinationSerializer.render(destination)
+  end
+
+  private
+
+  def destination_params
+    params.permit(:name, :zip, :description, :image_url)
+  end
 end
