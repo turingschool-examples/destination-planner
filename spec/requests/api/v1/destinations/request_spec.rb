@@ -70,4 +70,23 @@ RSpec.describe "Destination API" do
     expect(destination[:attributes][:zip]).to eq(expected.zip)
     expect(destination[:attributes][:description]).to eq(expected.description)
   end
+  it 'can update and existing destination' do
+    destination_params = {
+      zip: 80497
+    }
+    headers = {'CONTENT_TYPE' => 'application/json'}
+
+    patch "/api/v1/destinations/#{@destination1.id}", headers: headers, params: JSON.generate(destination_params)
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    destination = parsed[:data]
+
+    expect(response).to be_successful
+    expect(response.content_type).to eq('application/json')
+    expect(destination[:type]).to eq('destination')
+    expect(destination[:id]).to eq(@destination1.id)
+    expect(destination[:attributes][:name]).to eq(@destination1.name)
+    expect(destination[:attributes][:zip]).to eq('80497')
+    expect(destination[:attributes][:description]).to eq(@destination1.description)
+  end
 end
