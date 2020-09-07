@@ -46,4 +46,28 @@ RSpec.describe "Destination API" do
     expect(destination[:attributes][:zip]).to eq(@destination1.zip)
     expect(destination[:attributes][:description]).to eq(@destination1.description)
   end
+  it 'cam create a destination' do
+    destination_params = {
+      name: 'Silverthorne',
+      zip: 80320,
+      description: "B-E-A_utiful",
+      image_url: Faker::Placeholdit.image
+    }
+    headers = {'CONTENT_TYPE' => 'application/json'}
+
+    post '/api/v1/destinations', headers: headers, params: JSON.generate(destination_params)
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    destination = parsed[:data]
+
+    expected = Destination.last
+
+    expect(response).to be_successful
+    expect(response.content_type).to eq('application/json')
+    expect(destination[:type]).to eq('destination')
+    expect(destination[:id]).to eq(expected.id)
+    expect(destination[:attributes][:name]).to eq(expected.name)
+    expect(destination[:attributes][:zip]).to eq(expected.zip)
+    expect(destination[:attributes][:description]).to eq(expected.description)
+  end
 end
