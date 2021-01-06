@@ -1,6 +1,6 @@
 # Destination Planner
 
-Simple app with CRUD interface for destinations. To be used as a jumping point for various lessons at Turing.
+Simple app with CRUD interface for destinations.
 
 ### Versions
 
