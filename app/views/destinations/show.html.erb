@@ -19,7 +19,26 @@
 
   <div class="row">
     <h4>Forecast for <%= @destination.name %>:</h4>
-
+    <div class="weather">
+      <p id="date">
+      Date: <%= @weather.date %>
+      </p>
+      <p id="current-temp">
+      Current Temperature: <%= @weather.current_temp %>° Fahrenheit
+      </p>
+      <p id="high-temp">
+      High Temperature: <%= @weather.high_temp %>° Fahrenheit
+      </p>
+      <p id="low-temp">
+      Low Temperature: <%= @weather.low_temp %>° Fahrenheit
+      </p>
+      <p id="description">
+      Summary: <%= @weather.description %>
+      </p>
+      <p id="weather-image">
+      <!%= image_tag("#{@image.url}", :alt => "Weather Image") %>
+      </p>
+    </div>
   </div>
 
   <div class="row">

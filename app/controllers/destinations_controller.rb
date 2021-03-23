@@ -6,6 +6,9 @@ class DestinationsController < ApplicationController
   end
 
   def show
+    destination = Destination.find(params[:id])
+    zip = destination.zip
+    @weather = WeatherFacade.fetch_weather(zip)
   end
 
   def new
