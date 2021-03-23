@@ -18,10 +18,13 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'bootsnap'
 gem 'jquery-rails'
 gem 'faker'
+gem 'figaro'
+gem 'faraday'
 
 
 group :development, :test do
   gem 'pry'
+  gem 'faker'
 end
 
 group :test do
