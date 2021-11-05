@@ -36,7 +36,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov'
   # gem 'faker'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 5.0'
   gem 'webmock'
 end
 
