@@ -17,18 +17,27 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.4.1'
 gem 'bootsnap'
 gem 'jquery-rails'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+gem 'bcrypt', '~> 3.1.7'
+gem 'faraday'
+gem 'figaro'
+gem 'json'
 
 
 group :development, :test do
   gem 'pry'
+  gem 'faker'
+
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'faker'
   gem 'simplecov'
+  # gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'webmock'
 end
 
 group :development do
