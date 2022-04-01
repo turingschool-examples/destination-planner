@@ -4,9 +4,9 @@ Simple app with CRUD interface for destinations.
 
 ### Versions
 
-Rails 5.2.4.3
+Rails 5.2.7
 
-Ruby 2.5.3
+Ruby 2.7.4
 
 ## Setup
 
